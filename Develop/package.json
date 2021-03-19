@@ -12,5 +12,6 @@
     "mysql": "^2.18.1"
   },
   "keywords": [],
+  "devDependencies": {},
   "description": ""
 }

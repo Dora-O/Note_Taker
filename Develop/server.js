@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const dbJSON = require("./db/db.json");
+const dbJSON = require('./db/db.json');
 
 //uuid package installed for unique id for each note
 const { v4: uuidv4 } = require('uuid');
@@ -17,7 +17,7 @@ app.use(express.static('./public'));
 
 //routes to notes html
 app.get('/notes', (req, res) => {
-    res.sendFile(path.join(__dirname + '/public/notes.html'));
+    res.sendFile(path.join(__dirname, './public/notes.html'));
 });
 
 //routes to index.html
@@ -32,9 +32,11 @@ app.get('/api/notes', function (req, res) {
     })
 });
 
+//receives new note and saves the reqeust body and adds it to the db.json file & returns new note to client with unique id as well
 // app.post('/api/notes', function (req, res) {
 //     const note = { ...req.body, id: uuidv4() };
-//     dbJSON.push(note)
+//     console.log(note)
+//     dbJSON.push(note);
 //     fs.writeFile();
 // });
 

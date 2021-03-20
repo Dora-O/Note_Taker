@@ -17,6 +17,13 @@ This application used starter code containing HTML, CSS, JS file along with the 
 
 This application uses a server.js file to connect the back end to the front end.
 
-Link to deployed site:
+## Link to deployed site
+https://polar-mountain-11541.herokuapp.com/
 
-Screenshot:
+https://dora-o.github.io/Note_Taker/
+
+## Screenshots of deployed site
+<img src = "https://user-images.githubusercontent.com/70343136/111874472-6c7f9400-8963-11eb-85d4-8bb673a7b94e.png">
+<img src = "https://user-images.githubusercontent.com/70343136/111874474-6d182a80-8963-11eb-8cf1-3c0c3b4ed75c.png">
+<img src = "https://user-images.githubusercontent.com/70343136/111874476-6db0c100-8963-11eb-878c-facaa1803494.png">
+<img src = "https://user-images.githubusercontent.com/70343136/111874477-6e495780-8963-11eb-83a7-330719382dde.png">

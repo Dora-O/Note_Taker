@@ -2,7 +2,7 @@
 const express = require('express');
 const path = require('path');
 const fs = require('fs');
-const dbJSON = require("./db/db.json");
+const dbJSON = require('./db/db.json');
 
 //uuid package installed for unique id for each note
 const { v4: uuidv4 } = require('uuid');
@@ -35,13 +35,32 @@ app.get('/api/notes', function (req, res) {
 //receives new note and saves the reqeust body and adds it to the db.json file & returns new note to client with unique id as well
 app.post('/api/notes', function (req, res) {
     const note = { ...req.body, id: uuidv4() };
-    console.log(note)
     dbJSON.push(note);
     fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(dbJSON, null, 2), (err) => {
         if (err) {
             return res.json({ error: "Error writing to file" });
         }
         return res.json(note);
+    });
+});
+
+//deletes notes
+app.delete("/api/notes/:id", function(req, res) {
+    fs.readFile('./db/db.json', "utf8", function(error, data) {
+      let noteID = req.params.id;
+      let noteData = JSON.parse(data);
+      noteData = noteData.filter(function(note) {
+          if (noteID != note.id) {
+            return true;
+          } else {
+            return false;
+          };
+      }); 
+      fs.writeFile('./db/db.json', JSON.stringify(noteData), function(error){
+        if (error)
+        throw error;
+        res.end(console.log("Deleted Successfully"));
+      })
     });
 });
 

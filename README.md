@@ -20,7 +20,6 @@ This application uses a server.js file to connect the back end to the front end.
 ## Link to deployed site
 https://polar-mountain-11541.herokuapp.com/
 
-https://dora-o.github.io/Note_Taker/
 
 ## Screenshots of deployed site
 <img src = "https://user-images.githubusercontent.com/70343136/111874472-6c7f9400-8963-11eb-85d4-8bb673a7b94e.png">

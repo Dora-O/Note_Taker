@@ -25,11 +25,13 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname + '/public/index.html'));
 });
 
+//reads and returns all saved notes as JSON
 app.get('/api/notes', function (req, res) {
     fs.readFile('./db/db.json', 'utf8', function (err, data) {
-        res.json(JSON.parser(data));
+        res.json(JSON.parse(data));
     })
 });
+
 // app.post('/api/notes', function (req, res) {
 //     const note = { ...req.body, id: uuidv4() };
 //     dbJSON.push(note)

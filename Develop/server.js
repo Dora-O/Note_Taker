@@ -33,12 +33,17 @@ app.get('/api/notes', function (req, res) {
 });
 
 //receives new note and saves the reqeust body and adds it to the db.json file & returns new note to client with unique id as well
-// app.post('/api/notes', function (req, res) {
-//     const note = { ...req.body, id: uuidv4() };
-//     console.log(note)
-//     dbJSON.push(note);
-//     fs.writeFile();
-// });
+app.post('/api/notes', function (req, res) {
+    const note = { ...req.body, id: uuidv4() };
+    console.log(note)
+    dbJSON.push(note);
+    fs.writeFile(path.join(__dirname, './db/db.json'), JSON.stringify(dbJSON, null, 2), (err) => {
+        if (err) {
+            return res.json({ error: "Error writing to file" });
+        }
+        return res.json(note);
+    });
+});
 
 //starts server to begin listening
 app.listen(PORT, () => console.log(`App listening on PORT ${PORT}`));
